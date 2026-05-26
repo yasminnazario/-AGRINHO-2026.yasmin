@@ -1,46 +1,116 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agro Forte, Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <link rel="stylesheet" href="style.css"> </head>
 <body>
 
-    <!-- Cabeçalho Principal -->
     <header>
         <div class="logo">
             <h1>AgroSustentável</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#praticas">Práticas Sustentáveis</a></li>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#producao">Produção</a></li>
+                <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+                <li><a href="#desafios">Desafios</a></li>
+                <li><a href="#futuro">Futuro</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Seção Banner / Destaque -->
-    <section id="inicio" class="hero">
-        <h2>Agro forte, futuro sustentável</h2>
-        <p>O equilíbrio perfeito entre a alta produção agrícola e a preservação do meio ambiente.</p>
-        <a href="#sobre" class="btn">Saiba Mais</a>
-    </section>
+    <main>
+        <section id="home" class="banner">
+            <div class="banner-content">
+                <h2>Produzir hoje, preservar para o amanhã.</h2>
+                <p>O agronegócio e a sustentabilidade podem caminhar juntos por meio da inovação e do uso consciente dos recursos naturais.</p>
+                <a href="#producao" class="btn">Saiba Mais</a>
+            </div>
+        </section>
 
-    <!-- Seção Sobre o Tema -->
-    <section id="sobre">
-        <h2>Equilíbrio Necessário</h2>
-        <p>A agricultura moderna exige soluções inteligentes que garantam a segurança alimentar global sem esgotar os recursos naturais do nosso planeta.</p>
-    </section>
+        <section id="producao" class="container">
+            <h2>Produção Agrícola</h2>
+            <div class="flex-row">
+                <div class="text">
+                    <p>O agronegócio é o motor da economia brasileira, gerando empregos e garantindo a segurança alimentar global.</p>
+                </div>
+                <div class="media">
+                    <div class="placeholder-grafico">[Gráfico de Produção]</div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Rodapé -->
+        <section id="sustentabilidade" class="bg-light">
+            <div class="container">
+                <h2>Sustentabilidade no Campo</h2>
+                <div class="cards">
+                    <div class="card">
+                        <span class="icon">☀️</span>
+                        <h3>Energia Limpa</h3>
+                        <p>Uso de painéis solares e biomassa.</p>
+                    </div>
+                    <div class="card">
+                        <span class="icon">💧</span>
+                        <h3>Gestão de Água</h3>
+                        <p>Irrigação inteligente e monitoramento.</p>
+                    </div>
+                    <div class="card">
+                        <span class="icon">🌱</span>
+                        <h3>Solo Vivo</h3>
+                        <p>Práticas de agricultura regenerativa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="desafios" class="container">
+            <h2>Desafios Ambientais</h2>
+            <div class="flex-row">
+                <div class="media">
+                    <img src="alerta-ambiental.jpg" alt="Impactos ambientais">
+                </div>
+                <div class="text">
+                    <ul>
+                        <li>Combate ao desmatamento ilegal.</li>
+                        <li>Redução da emissão de carbono.</li>
+                        <li>Preservação dos recursos hídricos.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="futuro" class="bg-dark">
+            <div class="container">
+                <h2>Inovação e Futuro</h2>
+                <div class="tech-grid">
+                    <div class="tech-item">Drones Agrícolas</div>
+                    <div class="tech-item">Sensores de Solo</div>
+                    <div class="tech-item">IA no Campo</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="container">
+            <h2>Participe da Mudança</h2>
+            <form action="#">
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu E-mail" required>
+                <textarea placeholder="Sua Mensagem"></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+            <p class="quote">“Pequenas mudanças no presente constroem um futuro sustentável.”</p>
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2026 AgroSustentável. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Agro Sustentável - Todos os direitos reservados.</p>
+        <div class="social-links">
+            </div>
     </footer>
 
 </body>
 </html>
-
