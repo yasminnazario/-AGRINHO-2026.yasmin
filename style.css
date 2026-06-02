@@ -1,1 +1,338 @@
+/* --- CONFIGURAÇÕES GERAIS --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fafdfb;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: #1e3a27;
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+/* --- TOPO / HEADER --- */
+header {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.logo h1 {
+    color: #2e6f40;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #2e6f40;
+}
+
+/* --- BANNER PRINCIPAL --- */
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+                url('https://unsplash.com') no-repeat center center/cover;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.banner-content h2 {
+    color: #fff;
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.banner-content p {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 35px;
+    font-weight: 300;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #2e6f40;
+    color: #fff;
+    padding: 14px 35px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.btn:hover {
+    background-color: #1e3a27;
+    transform: translateY(-2px);
+}
+
+/* --- SEÇÃO PRODUÇÃO E DESAFIOS (FLEX-ROW) --- */
+.flex-row {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.flex-row .text, 
+.flex-row .media {
+    flex: 1;
+    min-width: 300px;
+}
+
+.flex-row .text p {
+    font-size: 1.15rem;
+    color: #555;
+}
+
+.flex-row .text ul {
+    list-style-type: none;
+}
+
+.flex-row .text ul li {
+    margin-bottom: 15px;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1.1rem;
+    color: #444;
+}
+
+/* Ícone personalizado para a lista de desafios */
+.flex-row .text ul li::before {
+    content: "⚠️";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.placeholder-grafico {
+    background-color: #edf2f7;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 2px dashed #cbd5e0;
+    color: #718096;
+    font-weight: 600;
+}
+
+.media img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* --- SUSTENTABILIDADE (CARDS) --- */
+.bg-light {
+    background-color: #eef7f2;
+}
+
+.cards {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: #ffffff;
+    padding: 35px 25px;
+    border-radius: 12px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    max-width: 360px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .icon {
+    font-size: 2.8rem;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    color: #1e3a27;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+}
+
+.card p {
+    color: #666;
+}
+
+/* --- INOVAÇÃO E FUTURO (GRID) --- */
+.bg-dark {
+    background-color: #1e3a27;
+    color: #fff;
+}
+
+.bg-dark h2 {
+    color: #fff;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.tech-item {
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.tech-item:hover {
+    background-color: #2e6f40;
+    border-color: #2e6f40;
+}
+
+/* --- CONTATO (FORMULÁRIO) --- */
+form {
+    max-width: 550px;
+    margin: 0 auto 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+form input, 
+form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+form input:focus, 
+form textarea:focus {
+    border-color: #2e6f40;
+}
+
+form textarea {
+    height: 140px;
+    resize: vertical;
+}
+
+form button {
+    background-color: #2e6f40;
+    color: #fff;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #1e3a27;
+}
+
+.quote {
+    text-align: center;
+    font-style: italic;
+    color: #555;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: #111;
+    color: #888;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.95rem;
+}
+
+/* --- RESPONSIVIDADE (TELAS MENORES) --- */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .banner-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .banner-content p {
+        font-size: 1.1rem;
+    }
+
+    .flex-row {
+        gap: 30px;
+    }
+}
 
