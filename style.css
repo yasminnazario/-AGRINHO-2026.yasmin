@@ -1,338 +1,293 @@
-/* --- CONFIGURAÇÕES GERAIS --- */
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E CORES
+   ========================================================================== */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
+:root {
+  --verde-agro: #2e7d32;
+  --verde-claro: #4caf50;
+  --verde-escuro: #1b5e20;
+  --cinza-fundo: #f4f6f4;
+  --texto-escuro: #333333;
+  --branco: #ffffff;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #fafdfb;
+  background-color: var(--cinza-fundo);
+  color: var(--texto-escuro);
+  line-height: 1.6;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 60px 20px;
+/* Efeito de rolagem suave ao clicar nos links do menu */
+html {
+  scroll-behavior: smooth;
 }
 
-h2 {
-    font-size: 2.2rem;
-    color: #1e3a27;
-    text-align: center;
-    margin-bottom: 40px;
-    position: relative;
-}
-
-/* --- TOPO / HEADER --- */
+/* ==========================================================================
+   2. CABEÇALHO E MENU DE NAVEGAÇÃO (NAVBAR)
+   ========================================================================== */
 header {
-    background-color: #ffffff;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  background-color: var(--branco);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
-.logo h1 {
-    color: #2e6f40;
-    font-size: 1.6rem;
-    font-weight: 700;
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 25px;
+.logo {
+  color: var(--verde-agro);
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
 }
 
-nav a {
-    text-decoration: none;
-    color: #555;
-    font-weight: 600;
-    transition: color 0.3s ease;
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
 }
 
-nav a:hover {
-    color: #2e6f40;
+.nav-links a {
+  text-decoration: none;
+  color: var(--texto-escuro);
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-/* --- BANNER PRINCIPAL --- */
-.banner {
-    background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
-                url('https://unsplash.com') no-repeat center center/cover;
-    height: 75vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    padding: 20px;
+.nav-links a:hover {
+  color: var(--verde-agro);
 }
 
-.banner-content h2 {
-    color: #fff;
-    font-size: 3.2rem;
-    margin-bottom: 20px;
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+/* ==========================================================================
+   3. BANNER PRINCIPAL (HERO SECTION)
+   ========================================================================== */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+              url('https://unsplash.com') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--branco);
+  padding: 20px;
+  margin-top: 70px; /* Evita que o menu fixo cubra o topo do banner */
 }
 
-.banner-content p {
-    font-size: 1.3rem;
-    max-width: 700px;
-    margin: 0 auto 35px;
-    font-weight: 300;
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  max-width: 800px;
+  font-weight: 700;
 }
 
-.btn {
-    display: inline-block;
-    background-color: #2e6f40;
-    color: #fff;
-    padding: 14px 35px;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    transition: transform 0.2s, background 0.3s;
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin-bottom: 30px;
+  opacity: 0.9;
 }
 
-.btn:hover {
-    background-color: #1e3a27;
-    transform: translateY(-2px);
+/* Estilo do botão verde principal */
+.btn-saiba-mais {
+  display: inline-block;
+  background-color: var(--verde-claro);
+  color: var(--branco);
+  padding: 12px 35px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* --- SEÇÃO PRODUÇÃO E DESAFIOS (FLEX-ROW) --- */
-.flex-row {
-    display: flex;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: wrap;
+.btn-saiba-mais:hover {
+  background-color: var(--verde-escuro);
+  transform: translateY(-2px);
 }
 
-.flex-row .text, 
-.flex-row .media {
-    flex: 1;
-    min-width: 300px;
+/* ==========================================================================
+   4. SEÇÃO DE CONTEÚDO (PRODUÇÃO AGRÍCOLA)
+   ========================================================================== */
+.secao-conteudo {
+  max-width: 1200px;
+  margin: 60px auto 30px auto;
+  padding: 0 20px;
+  text-align: center;
 }
 
-.flex-row .text p {
-    font-size: 1.15rem;
-    color: #555;
+.secao-conteudo h2 {
+  font-size: 32px;
+  color: var(--verde-escuro);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
 }
 
-.flex-row .text ul {
-    list-style-type: none;
+/* Linha decorativa embaixo do título */
+.secao-conteudo h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--verde-claro);
+  margin: 10px auto 0 auto;
+  border-radius: 2px;
 }
 
-.flex-row .text ul li {
-    margin-bottom: 15px;
-    padding-left: 30px;
-    position: relative;
-    font-size: 1.1rem;
-    color: #444;
+.texto-descricao {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #555555;
 }
 
-/* Ícone personalizado para a lista de desafios */
-.flex-row .text ul li::before {
-    content: "⚠️";
-    position: absolute;
-    left: 0;
-    top: 0;
+/* ==========================================================================
+   5. ESTILO DOS CARDS DE SUSTENTABILIDADE
+   ========================================================================== */
+.secao-cards {
+  background-color: var(--branco);
+  padding: 60px 20px;
 }
 
-.placeholder-grafico {
-    background-color: #edf2f7;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    border: 2px dashed #cbd5e0;
-    color: #718096;
-    font-weight: 600;
+.container-cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }
 
-.media img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+.card-item {
+  background-color: var(--cinza-fundo);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 4px solid var(--verde-claro);
 }
 
-/* --- SUSTENTABILIDADE (CARDS) --- */
-.bg-light {
-    background-color: #eef7f2;
+.card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
 }
 
-.cards {
-    display: flex;
-    gap: 25px;
-    flex-wrap: wrap;
-    justify-content: center;
+.icone-card {
+  font-size: 40px;
+  margin-bottom: 15px;
 }
 
-.card {
-    background: #ffffff;
-    padding: 35px 25px;
-    border-radius: 12px;
-    text-align: center;
-    flex: 1;
-    min-width: 280px;
-    max-width: 360px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    transition: transform 0.3s ease;
+.card-item h3 {
+  color: var(--verde-escuro);
+  margin-bottom: 10px;
 }
 
-.card:hover {
-    transform: translateY(-5px);
+.card-item p {
+  color: #666666;
+  font-size: 15px;
 }
 
-.card .icon {
-    font-size: 2.8rem;
-    display: block;
-    margin-bottom: 20px;
-}
-
-.card h3 {
-    color: #1e3a27;
-    margin-bottom: 12px;
-    font-size: 1.4rem;
-}
-
-.card p {
-    color: #666;
-}
-
-/* --- INOVAÇÃO E FUTURO (GRID) --- */
-.bg-dark {
-    background-color: #1e3a27;
-    color: #fff;
-}
-
-.bg-dark h2 {
-    color: #fff;
-}
-
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.tech-item {
-    background-color: rgba(255, 255, 255, 0.08);
-    padding: 40px 20px;
-    text-align: center;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 1.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    transition: all 0.3s ease;
-}
-
-.tech-item:hover {
-    background-color: #2e6f40;
-    border-color: #2e6f40;
-}
-
-/* --- CONTATO (FORMULÁRIO) --- */
-form {
-    max-width: 550px;
-    margin: 0 auto 50px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-form input, 
-form textarea {
-    width: 100%;
-    padding: 14px;
-    border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 1rem;
-    background-color: #fff;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-form input:focus, 
-form textarea:focus {
-    border-color: #2e6f40;
-}
-
-form textarea {
-    height: 140px;
-    resize: vertical;
-}
-
-form button {
-    background-color: #2e6f40;
-    color: #fff;
-    padding: 14px;
-    border: none;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-form button:hover {
-    background-color: #1e3a27;
-}
-
-.quote {
-    text-align: center;
-    font-style: italic;
-    color: #555;
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* --- RODAPÉ --- */
+/* ==========================================================================
+   6. ESTILO DO RODAPÉ (FOOTER)
+   ========================================================================== */
 footer {
-    background-color: #111;
-    color: #888;
-    text-align: center;
-    padding: 40px 20px;
-    font-size: 0.95rem;
+  background-color: #1e291f;
+  color: #e2e8f0;
+  padding: 40px 20px 20px 20px;
+  margin-top: 60px;
 }
 
-/* --- RESPONSIVIDADE (TELAS MENORES) --- */
+.conteudo-rodape {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #334135;
+}
+
+.bloco-rodape h3, 
+.bloco-rodape h4 {
+  color: var(--branco);
+  margin-bottom: 15px;
+}
+
+.bloco-rodape p {
+  font-size: 15px;
+  color: #cbd5e1;
+}
+
+.bloco-rodape ul {
+  list-style: none;
+}
+
+.bloco-rodape ul li {
+  margin-bottom: 8px;
+}
+
+.bloco-rodape ul li a {
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.bloco-rodape ul li a:hover {
+  color: var(--verde-claro);
+}
+
+.direitos-autorais {
+  text-align: center;
+  padding-top: 20px;
+  font-size: 14px;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   7. RESPONSIVIDADE (ADAPTAÇÃO PARA CELULAR)
+   ========================================================================== */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .hero h1 {
+    font-size: 32px;
+  }
+  
+  .hero p {
+    font-size: 16px;
+  }
 
-    nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    .banner-content h2 {
-        font-size: 2.2rem;
-    }
-
-    .banner-content p {
-        font-size: 1.1rem;
-    }
-
-    .flex-row {
-        gap: 30px;
-    }
+  .conteudo-rodape {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
