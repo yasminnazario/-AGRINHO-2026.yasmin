@@ -1,117 +1,36 @@
-/* ==========================================================================
-   1. CONFIGURAÇÕES GERAIS E VARIÁVEIS
-   ========================================================================== */
+/* CONFIGURAÇÕES DE CORES E BASE */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Arial, sans-serif;
 }
 
 :root {
   --verde-agro: #2e7d32;
   --verde-claro: #4caf50;
   --verde-escuro: #1b5e20;
-  --azul-fundo: #edf4f9;      
-  --azul-suave: #dbecf7;      
-  --texto-escuro: #1a2a3a;    
+  --azul-fundo: #f0f4f8;       /* Fundo azul-gelo tecnológico sutil */
+  --azul-escuro: #0f172a;     /* Tom azul-marinho escuro para o rodapé */
+  --texto-principal: #1e293b; /* Cor das letras escuras */
   --branco: #ffffff;
 }
 
 html {
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--azul-fundo);
-  color: var(--texto-escuro);
+  color: var(--texto-principal);
   line-height: 1.6;
 }
-* ==========================================================================
-}
 
-.container-cards {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.card-item {
-  background-color: var(--cinza-fundo);
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-bottom: 4px solid var(--verde-claro);
-}
-
-.card-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-.icone-card {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.card-item h3 {
-  color: var(--verde-escuro);
-  margin-bottom: 10px;
-}
-
-.card-item p {
-  color: #666666;
-  font-size: 15px;
-}
-
-/* ==========================================================================
-   10. RODAPÉ DA PÁGINA (FOOTER)
-   ========================================================================== */
-footer {
-  background-color: #1e291f;
-  color: #e2e8f0;
-  padding: 40px 20px 20px 20px;
-  margin-top: 60px;
-}
-.conteudo-rodape {max-width: 1200px;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;gap: 30px;padding-bottom: 30px;border-bottom: 1px solid #334135;
-}
-.bloco-rodape h3,.bloco-rodape h4 {color: var(--branco);margin-bottom: 15px;
-}
-.bloco-rodape p {font-size: 15px;color: #cbd5e;
-}.bloco-rodape ul {list-style: none;}.bloco-rodape ul li {margin-bottom: 8px;
-                                                         
-}.bloco-rodape ul li a {color: #cbd5e1;text-decoration: none;transition: color 0.3s;
-}.bloco-rodape ul li a:hover {color: var(--verde-claro);}.direitos-autorais {text-align: center;padding-top: 20px;font-size: 14px;color: #94a3b8;                                                                        
-}
-/* ==========================================================================11. RESPONSIVIDADE (ADAPTAÇÃO PARA SMARTPHONES)========================================================================== 
-*/@media (max-width: 768px) {
-.navbar {flex-direction: column;gap: 15px;padding: 15px 20px;
-}
-.nav-links {flex-wrap: wrap;justify-content: center;gap: 15px;
-}
-.hero h1 {font-size: 32px;
-}
-.hero p {font-size: 16px;       
-}
-.carrossel-container {
-height: 250px; /* Menor em telas pequenas */
-}
-.grupo-formulario-inline {
-flex-direction: column;
-}
-.conteudo-rodape {
-flex-direction: column;text-align: center;
-}
-}
-/* ==========================================================================
-   2. CABEÇALHO E MENU DE NAVEGAÇÃO (NAVBAR)
-   ========================================================================== */
+/* MENU DE NAVEGAÇÃO */
 header {
-  background-color: var(--branco);
-  box-shadow: 0 2px 10px rgba(15, 32, 54, 0.08); 
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   position: fixed;
   width: 100%;
   top: 0;
@@ -125,27 +44,29 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
+  padding: 18px 24px;
 }
 
 .logo {
   color: var(--verde-agro);
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 700;
   text-decoration: none;
+  letter-spacing: -0.5px;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 20px;
+  gap: 28px;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: var(--texto-escuro);
-  font-weight: 500;
-  transition: color 0.3s ease;
+  color: var(--texto-principal);
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.2s ease;
 }
 
 .nav-links a:hover {
@@ -153,139 +74,123 @@ header {
 }
 
 .menu-toggle {
+  display: none;
   background: none;
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: var(--verde-escuro);
-  display: none;
 }
 
-/* ==========================================================================
-   3. BANNER PRINCIPAL (HERO SECTION)
-   ========================================================================== */
+/* BANNER PRINCIPAL MELHORADO (HERO) */
 .hero {
-  background: linear-gradient(rgba(10, 25, 47, 0.65), rgba(10, 25, 47, 0.65)), 
+  background: linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.7)), 
               url('https://unsplash.com') no-repeat center center/cover;
-  height: 80vh;
+  height: 85vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 0 24px;
+  margin-top: 65px;
+}
+
+.hero-conteudo {
+  max-width: 750px;
   text-align: center;
-  color: var(--branco);
-  padding: 20px;
-  margin-top: 70px;
+  background: rgba(255, 255, 255, 0.12); /* Efeito vidro fosco */
+  backdrop-filter: blur(8px);
+  padding: 40px 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  max-width: 800px;
-  font-weight: 700;
+  font-size: 42px;
+  color: var(--branco);
+  margin-bottom: 16px;
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 .hero p {
   font-size: 18px;
-  max-width: 600px;
-  margin-bottom: 30px;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 28px;
 }
 
 .btn-saiba-mais {
   display: inline-block;
   background-color: var(--verde-claro);
   color: var(--branco);
-  padding: 12px 35px;
-  border-radius: 25px;
+  padding: 14px 36px;
+  border-radius: 50px; /* Borda bem redonda e moderna */
   text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
 }
 
 .btn-saiba-mais:hover {
   background-color: var(--verde-escuro);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(27, 94, 32, 0.5);
 }
 
-/* ==========================================================================
-   4. SEÇÕES DE TEXTO E CONTEÚDO (PRODUÇÃO / DESAFIOS)
-   ========================================================================== */
+/* SEÇÕES DE CONTEÚDO */
 .secao-conteudo {
   max-width: 1200px;
-  margin: 60px auto 30px auto;
-  padding: 0 20px;
+  margin: 80px auto 40px auto;
+  padding: 0 24px;
   text-align: center;
 }
 
 .secao-conteudo h2 {
   font-size: 32px;
   color: var(--verde-escuro);
-  margin-bottom: 20px;
-  position: relative;
-  display: inline-block;
-}
-
-.secao-conteudo h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: var(--verde-claro);
-  margin: 10px auto 0 auto;
-  border-radius: 2px;
+  margin-bottom: 16px;
 }
 
 .texto-descricao {
-  max-width: 800px;
+  max-width: 650px;
   margin: 0 auto;
-  font-size: 18px;
-  color: #3b4a5a; 
+  font-size: 17px;
+  color: #475569;
 }
 
-/* ==========================================================================
-   5. PAINEL DE COTAÇÕES DE GRÃOS
-   ========================================================================== */
+/* CARDS DE COTAÇÃO */
 .container-cotacoes-flex {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 24px;
   flex-wrap: wrap;
-  margin-top: 30px;
+  margin-top: 40px;
 }
 
 .card-cotacao {
   background: var(--branco);
-  padding: 20px;
-  border-radius: 8px;
-  width: 250px;
-  box-shadow: 0 4px 10px rgba(15, 32, 54, 0.05);
+  padding: 24px;
+  border-radius: 12px;
+  width: 260px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.03);
   text-align: center;
-}
-
-.card-cotacao h3 {
-  font-size: 18px;
-  color: var(--texto-escuro);
+  border-top: 4px solid var(--verde-claro);
 }
 
 .card-cotacao .preco {
-  font-size: 26px;
-  font-weight: bold;
-  color: var(--texto-escuro);
+  font-size: 28px;
+  font-weight: 700;
   margin: 8px 0;
 }
 
-.variacao.alta { color: #2e7d32; font-weight: bold; }
-.variacao.baixa { color: #c62828; font-weight: bold; }
+.variacao.alta { color: #16a34a; font-weight: bold; }
+.variacao.baixa { color: #dc2626; font-weight: bold; }
 
-/* ==========================================================================
-   6. CARROSSEL DE IMAGENS E NOTÍCIAS
-   ========================================================================== */
+/* CARROSSEL */
 .secao-carrossel {
   max-width: 1200px;
-  margin: 5px auto 40px auto;
-  padding: 0 20px;
+  margin: 40px auto;
+  padding: 0 24px;
 }
 
 .carrossel-container {
@@ -293,8 +198,8 @@ header {
   width: 100%;
   height: 400px;
   overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(15, 32, 54, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.08);
 }
 
 .carrossel-slide {
@@ -302,12 +207,12 @@ header {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
 }
 
-.carrossel-slide.visivel { 
-  opacity: 1; 
-  position: relative; 
+.carrossel-slide.visivel {
+  opacity: 1;
+  position: relative;
 }
 
 .carrossel-slide img {
@@ -319,57 +224,41 @@ header {
 .carrossel-legenda {
   position: absolute;
   bottom: 0;
-  background: linear-gradient(transparent, rgba(10, 25, 47, 0.85)); 
+  background: linear-gradient(transparent, rgba(15, 23, 42, 0.85));
   color: white;
   width: 100%;
-  padding: 20px;
-  text-align: left;
+  padding: 30px;
 }
 
 .seta-carrossel {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(10, 25, 47, 0.6); 
+  background: rgba(15, 23, 42, 0.6);
   color: white;
   border: none;
-  font-size: 24px;
-  padding: 10px 15px;
+  font-size: 20px;
+  padding: 12px 16px;
   cursor: pointer;
   z-index: 10;
-  border-radius: 4px;
-  transition: background 0.2s;
+  border-radius: 8px;
 }
 
-.seta-carrossel:hover { background: rgba(10, 25, 47, 0.9); }
-#btn-anterior { left: 10px; }
-#btn-proximo { right: 10px; }
+#btn-anterior { left: 16px; }
+#btn-proximo { right: 16px; }
 
-/* ==========================================================================
-   7. PAINÉIS DE FERRAMENTAS (SIMULADOR, CLIMA E FORMULÁRIOS)
-   ========================================================================== */
+/* CAIXAS DE FERRAMENTAS */
 .secao-painel {
-  background-color: var(--azul-fundo); 
-  padding: 60px 20px;
+  padding: 80px 24px;
 }
 
 .caixa-ferramenta {
-  max-width: 650px;
+  max-width: 600px;
   margin: 0 auto;
   background: var(--branco);
   padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(15, 32, 54, 0.06);
-}
-
-.caixa-ferramenta h2 {
-  color: var(--verde-escuro);
-  margin-bottom: 10px;
-}
-
-.caixa-ferramenta p { 
-  margin-bottom: 25px; 
-  color: #4a5d6e; 
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.04);
 }
 
 .grupo-formulario {
@@ -380,269 +269,27 @@ header {
   text-align: left;
 }
 
-.grupo-formulario label { 
-  font-weight: 600; 
-  color: var(--texto-escuro);
-}
-
-.grupo-formulario input, 
-.grupo-formulario select, 
-.grupo-formulario textarea {
+.grupo-formulario input, .grupo-formulario select, .grupo-formulario textarea {
   padding: 12px;
-  border: 1px solid #b9cbd9; 
-  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
   font-size: 16px;
-  width: 100%;
-  background-color: #fcfdfe;
+  background: #f8fafc;
 }
 
 .grupo-formulario-inline {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
 .grupo-formulario-inline input {
   flex: 1;
   padding: 12px;
-  border: 1px solid #b9cbd9;
-  border-radius: 6px;
-}
-* ==========================================================================
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
 }
 
-.container-cards {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.card-item {
-  background-color: var(--cinza-fundo);
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-bottom: 4px solid var(--verde-claro);
-}
-
-.card-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-.icone-card {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.card-item h3 {
-  color: var(--verde-escuro);
-  margin-bottom: 10px;
-}
-
-.card-item p {
-  color: #666666;
-  font-size: 15px;
-}
-
-/* ==========================================================================
-   10. RODAPÉ DA PÁGINA (FOOTER)
-   ========================================================================== */
-footer {
-  background-color: #1e291f;
-  color: #e2e8f0;
-  padding: 40px 20px 20px 20px;
-  margin-top: 60px;
-}
-.conteudo-rodape {max-width: 1200px;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;gap: 30px;padding-bottom: 30px;border-bottom: 1px solid #334135;
-}
-.bloco-rodape h3,.bloco-rodape h4 {color: var(--branco);margin-bottom: 15px;
-}
-.bloco-rodape p {font-size: 15px;color: #cbd5e;
-}.bloco-rodape ul {list-style: none;}.bloco-rodape ul li {margin-bottom: 8px;
-                                                         
-}.bloco-rodape ul li a {color: #cbd5e1;text-decoration: none;transition: color 0.3s;
-}.bloco-rodape ul li a:hover {color: var(--verde-claro);}.direitos-autorais {text-align: center;padding-top: 20px;font-size: 14px;color: #94a3b8;                                                                        
-}
-/* ==========================================================================11. RESPONSIVIDADE (ADAPTAÇÃO PARA SMARTPHONES)========================================================================== 
-*/@media (max-width: 768px) {
-.navbar {flex-direction: column;gap: 15px;padding: 15px 20px;
-}
-.nav-links {flex-wrap: wrap;justify-content: center;gap: 15px;
-}
-.hero h1 {font-size: 32px;
-}
-.hero p {font-size: 16px;       
-}
-.carrossel-container {
-height: 250px; /* Menor em telas pequenas */
-}
-.grupo-formulario-inline {
-flex-direction: column;
-}
-.conteudo-rodape {
-flex-direction: column;text-align: center;
-}
-}* ==========================================================================
-}
-
-.container-cards {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.card-item {
-  background-color: var(--cinza-fundo);
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-bottom: 4px solid var(--verde-claro);
-}
-
-.card-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-.icone-card {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.card-item h3 {
-  color: var(--verde-escuro);
-  margin-bottom: 10px;
-}
-
-.card-item p {
-  color: #666666;
-  font-size: 15px;
-}
-
-/* ==========================================================================
-   10. RODAPÉ DA PÁGINA (FOOTER)
-   ========================================================================== */
-footer {
-  background-color: #1e291f;
-  color: #e2e8f0;
-  padding: 40px 20px 20px 20px;
-  margin-top: 60px;
-}
-.conteudo-rodape {max-width: 1200px;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;gap: 30px;padding-bottom: 30px;border-bottom: 1px solid #334135;
-}
-.bloco-rodape h3,.bloco-rodape h4 {color: var(--branco);margin-bottom: 15px;
-}
-.bloco-rodape p {font-size: 15px;color: #cbd5e;
-}.bloco-rodape ul {list-style: none;}.bloco-rodape ul li {margin-bottom: 8px;
-                                                         
-}.bloco-rodape ul li a {color: #cbd5e1;text-decoration: none;transition: color 0.3s;
-}.bloco-rodape ul li a:hover {color: var(--verde-claro);}.direitos-autorais {text-align: center;padding-top: 20px;font-size: 14px;color: #94a3b8;                                                                        
-}
-/* ==========================================================================11. RESPONSIVIDADE (ADAPTAÇÃO PARA SMARTPHONES)========================================================================== 
-*/@media (max-width: 768px) {
-.navbar {flex-direction: column;gap: 15px;padding: 15px 20px;
-}
-.nav-links {flex-wrap: wrap;justify-content: center;gap: 15px;
-}
-.hero h1 {font-size: 32px;
-}
-.hero p {font-size: 16px;       
-}
-.carrossel-container {
-height: 250px; /* Menor em telas pequenas */
-}
-.grupo-formulario-inline {
-flex-direction: column;
-}
-.conteudo-rodape {
-flex-direction: column;text-align: center;
-}
-}* ==========================================================================
-}
-
-.container-cards {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.card-item {
-  background-color: var(--cinza-fundo);
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-bottom: 4px solid var(--verde-claro);
-}
-
-.card-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
-}
-
-.icone-card {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.card-item h3 {
-  color: var(--verde-escuro);
-  margin-bottom: 10px;
-}
-
-.card-item p {
-  color: #666666;
-  font-size: 15px;
-}
-
-/* ==========================================================================
-   10. RODAPÉ DA PÁGINA (FOOTER)
-   ========================================================================== */
-footer {
-  background-color: #1e291f;
-  color: #e2e8f0;
-  padding: 40px 20px 20px 20px;
-  margin-top: 60px;
-}
-.conteudo-rodape {max-width: 1200px;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;gap: 30px;padding-bottom: 30px;border-bottom: 1px solid #334135;
-}
-.bloco-rodape h3,.bloco-rodape h4 {color: var(--branco);margin-bottom: 15px;
-}
-.bloco-rodape p {font-size: 15px;color: #cbd5e;
-}.bloco-rodape ul {list-style: none;}.bloco-rodape ul li {margin-bottom: 8px;
-                                                         
-}.bloco-rodape ul li a {color: #cbd5e1;text-decoration: none;transition: color 0.3s;
-}.bloco-rodape ul li a:hover {color: var(--verde-claro);}.direitos-autorais {text-align: center;padding-top: 20px;font-size: 14px;color: #94a3b8;                                                                        
-}
-/* ==========================================================================11. RESPONSIVIDADE (ADAPTAÇÃO PARA SMARTPHONES)========================================================================== 
-*/@media (max-width: 768px) {
-.navbar {flex-direction: column;gap: 15px;padding: 15px 20px;
-}
-.nav-links {flex-wrap: wrap;justify-content: center;gap: 15px;
-}
-.hero h1 {font-size: 32px;
-}
-.hero p {font-size: 16px;       
-}
-.carrossel-container {
-height: 250px; /* Menor em telas pequenas */
-}
-.grupo-formulario-inline {
-flex-direction: column;
-}
-.conteudo-rodape {
-flex-direction: column;text-align: center;
-}
-}
 .btn-acao {
   width: 100%;
   background-color: var(--verde-agro);
@@ -650,96 +297,59 @@ flex-direction: column;text-align: center;
   border: none;
   padding: 14px;
   font-size: 16px;
-  font-weight: bold;
-  border-radius: 6px;
+  font-weight: 700;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.2s;
 }
 
-.btn-acao:hover { 
-  background-color: var(--verde-escuro); 
-}
+.btn-acao:hover { background-color: var(--verde-escuro); }
 
-/* Feedbacks Visuais */
-#resultado-simulacao, #container-tempo, #feedback-formulario {
-  margin-top: 20px;
-}
-
-.sucesso, .lucro-positivo {
-  background: #e8f5e9;
-  border-left: 5px solid #2e7d32;
-  padding: 15px;
-  border-radius: 4px;
-  text-align: left;
-}
-
-.lucro-negativo, .erro {
-  background: #fdf2f2;
-  border-left: 5px solid #c62828;
-  padding: 15px;
-  border-radius: 4px;
-  color: #c62828;
-  text-align: left;
-}
-
-.mensagem-feedback.sucesso { color: #2e7d32; font-weight: bold; }
-.mensagem-feedback.erro { color: #c62828; font-weight: bold; }
-
-/* ==========================================================================
-   8. CATÁLOGO COM FILTRO DE PRODUTOS
-   ========================================================================== */
+/* FILTROS E PRODUTOS */
 .botoes-filtro-container {
   display: flex;
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
+  gap: 12px;
+  margin: 32px 0;
 }
 
 .btn-filtro {
-  background: var(--azul-suave); 
-  color: var(--texto-escuro);
+  background: #e2e8f0;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 24px;
   font-weight: 600;
-  border-radius: 20px;
+  border-radius: 30px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
-.btn-filtro.ativo, 
-.btn-filtro:hover {
+.btn-filtro.ativo, .btn-filtro:hover {
   background: var(--verde-agro);
   color: white;
 }
 
 .grade-produtos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 0 20px;
 }
 
 .item-produto {
   background: var(--branco);
-  padding: 25px;
-  border-radius: 8px;
+  padding: 30px;
+  border-radius: 12px;
   text-align: center;
-  box-shadow: 0 4px 10px rgba(15, 32, 54, 0.04);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.02);
 }
 
-.foto-produto { 
-  font-size: 50px; 
-  margin-bottom: 10px; 
-}
+.foto-produto { font-size: 48px; margin-bottom: 12px; }
 
-/* ==========================================================================
-   9. CARDS DE SUSTENTABILIDADE
-   ========================================================================== */
+/* SUSTENTABILIDADE */
 .secao-cards {
-  background-color: var(--branco);
-  padding: 60px 20px;
+  background: var(--branco);
+  padding: 80px 24px;
 }
 
 .container-cards {
@@ -747,90 +357,48 @@ flex-direction: column;text-align: center;
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  gap: 32px;
 }
 
 .card-item {
-  background-color: var(--azul-fundo); 
-  padding: 30px;
-  border-radius: 12px;
+  background: var(--azul-fundo);
+  padding: 32px;
+  border-radius: 16px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border-bottom: 4px solid var(--verde-claro);
 }
 
-.card-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(15, 32, 54, 0.08);
+.icone-card { font-size: 40px; margin-bottom: 16px; }
+
+/* RODAPÉ */
+footer {
+  background-color: var(--azul-escuro);
+  color: #94a3b8;
+  padding: 60px 24px 24px 24px;
 }
 
-.icone-card {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.card-item h3 {
-  color: var(--verde-escuro);
-  margin-bottom: 10px;
-}
-
-.card-item p {
-  color: #4a5d6e; 
-  font-size: 15px;
-}
-
-/* ==========================================================================
-   10. RODAPÉ DA PÁGINA (FOOTER)
-========================================================================== 
-*/footer 
-{
-background-color: #0d1b2a;color: #e2e8f0;padding: 40px 20px 20px 20px;margin-top: 60px;
-}
 .conteudo-rodape {
-max-width: 1200px;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;gap: 30px;padding-bottom: 30px;border-bottom: 1px solid #1e2e3e;
-}
-.bloco-rodape h3,.bloco-rodape h4 {
-   color: var(--branco);margin-bottom: 15px;
-}
-.bloco-rodape p {
-   font-size: 15px;color: #cbd5e1;
-}
-.bloco-rodape ul {
-   list-style: none;
-}
-.bloco-rodape ul li {
-   margin-bottom: 8px;
-}
-.bloco-rodape ul li a {
-   color: #cbd5e1;text-decoration: none;transition: color 0.3s;
-}
-.bloco-rodape ul li a:hover {
-   color: var(--verde-claro);
-}
-.direitos-autorais {
-   text-align: center;padding-top: 20px;font-size: 14px;color: #64748b;
-}
-/* ==========================================================================11. RESPONSIVIDADE (ADAPTAÇÃO PARA SMARTPHONES)========================================================================== 
-*/@media (max-width: 768px) {
-   .navbar {
-flex-direction: column;gap: 15px;padding: 15px 20px;
-}
-   .nav-links {
-      flex-wrap: wrap;justify-content: center;gap: 15px;
-   }
-.hero h1 { font-size: 32px; 
-   }
-   .hero p { font-size: 16px; 
-           
-   }
-.carrossel-container {
-   height: 250px; 
-}
-   .grupo-formulario-inline { 
-      flex-direction: column; 
-   }
-   .conteudo-rodape { 
-      flex-direction: column; text-align: center; 
-}
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #334155;
 }
 
+.bloco-rodape h3, .bloco-rodape h4 { color: white; margin-bottom: 16px; }
+.bloco-rodape ul { list-style: none; }
+.bloco-rodape ul li { margin-bottom: 10px; }
+.bloco-rodape ul li a { color: #94a3b8; text-decoration: none; }
+.bloco-rodape ul li a:hover { color: var(--verde-claro); }
+.direitos-autorais { text-align: center; padding-top: 24px; font-size: 14px; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .navbar { flex-direction: column; gap: 16px; }
+  .nav-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+  .hero h1 { font-size: 32px; }
+  .conteudo-rodape { flex-direction: column; text-align: center; }
+}
