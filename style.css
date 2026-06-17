@@ -12,421 +12,22 @@
   --verde-agro: #2e7d32;
   --verde-claro: #4caf50;
   --verde-escuro: #1b5e20;
-  --cinza-fundo: #f4f6f4;
-  --texto-escuro: #333333;
+  --azul-fundo: #edf4f9;      
+  --azul-suave: #dbecf7;      
+  --texto-escuro: #1a2a3a;    
   --branco: #ffffff;
 }
 
 html {
-  scroll-behavior: smooth; /* Deixa o deslizar do menu suave */
+  scroll-behavior: smooth; 
 }
 
 body {
-  background-color: var(--cinza-fundo);
+  background-color: var(--azul-fundo);
   color: var(--texto-escuro);
   line-height: 1.6;
 }
-
-/* ==========================================================================
-   2. CABEÇALHO E MENU DE NAVEGAÇÃO (NAVBAR)
-   ========================================================================== */
-header {
-  background-color: var(--branco);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1000;
-}
-
-.navbar {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-}
-
-.logo {
-  color: var(--verde-agro);
-  font-size: 24px;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: var(--texto-escuro);
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--verde-agro);
-}
-
-.menu-toggle {
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--verde-escuro);
-  display: none; /* Escondido no PC, aparece no celular via JavaScript se necessário */
-}
-
-/* ==========================================================================
-   3. BANNER PRINCIPAL (HERO SECTION)
-   ========================================================================== */
-.hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-              url('https://unsplash.com') no-repeat center center/cover;
-  height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: var(--branco);
-  padding: 20px;
-  margin-top: 70px; /* Evita que o menu tape o texto */
-}
-
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 20px;
-  max-width: 800px;
-  font-weight: 700;
-}
-
-.hero p {
-  font-size: 18px;
-  max-width: 600px;
-  margin-bottom: 30px;
-  opacity: 0.9;
-}
-
-.btn-saiba-mais {
-  display: inline-block;
-  background-color: var(--verde-claro);
-  color: var(--branco);
-  padding: 12px 35px;
-  border-radius: 25px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn-saiba-mais:hover {
-  background-color: var(--verde-escuro);
-  transform: translateY(-2px);
-}
-
-/* ==========================================================================
-   4. SEÇÕES DE TEXTO E CONTEÚDO (PRODUÇÃO / DESAFIOS)
-   ========================================================================== */
-.secao-conteudo {
-  max-width: 1200px;
-  margin: 60px auto 30px auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.secao-conteudo h2 {
-  font-size: 32px;
-  color: var(--verde-escuro);
-  margin-bottom: 20px;
-  position: relative;
-  display: inline-block;
-}
-
-.secao-conteudo h2::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: var(--verde-claro);
-  margin: 10px auto 0 auto;
-  border-radius: 2px;
-}
-
-.texto-descricao {
-  max-width: 800px;
-  margin: 0 auto;
-  font-size: 18px;
-  color: #555555;
-}
-
-/* ==========================================================================
-   5. PAINEL DE COTAÇÕES DE GRÃOS
-   ========================================================================== */
-.container-cotacoes-flex {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-top: 30px;
-}
-
-.card-cotacao {
-  background: var(--branco);
-  padding: 20px;
-  border-radius: 8px;
-  width: 250px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  text-align: center;
-}
-
-.card-cotacao h3 {
-  font-size: 18px;
-  color: #555;
-}
-
-.card-cotacao .preco {
-  font-size: 26px;
-  font-weight: bold;
-  color: var(--texto-escuro);
-  margin: 8px 0;
-}
-
-.variacao.alta { color: #2e7d32; font-weight: bold; }
-.variacao.baixa { color: #c62828; font-weight: bold; }
-
-/* ==========================================================================
-   6. CARROSSEL DE IMAGENS E NOTÍCIAS
-   ========================================================================== */
-.secao-carrossel {
-  max-width: 1200px;
-  margin: 5px auto 40px auto;
-  padding: 0 20px;
-}
-
-.carrossel-container {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.carrossel-slide {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
-}
-
-.carrossel-slide.visivel { 
-  opacity: 1; 
-  position: relative; 
-}
-
-.carrossel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.carrossel-legenda {
-  position: absolute;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.65);
-  color: white;
-  width: 100%;
-  padding: 20px;
-  text-align: left;
-}
-
-.seta-carrossel {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  font-size: 24px;
-  padding: 10px 15px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.seta-carrossel:hover { background: rgba(0,0,0,0.8); }
-#btn-anterior { left: 10px; }
-#btn-proximo { right: 10px; }
-
-/* ==========================================================================
-   7. PAINÉIS DE FERRAMENTAS (SIMULADOR, CLIMA E FORMULÁRIOS)
-   ========================================================================== */
-.secao-painel {
-  background-color: var(--cinza-fundo);
-  padding: 60px 20px;
-}
-
-.caixa-ferramenta {
-  max-width: 650px;
-  margin: 0 auto;
-  background: var(--branco);
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-
-.caixa-ferramenta h2 {
-  color: var(--verde-escuro);
-  margin-bottom: 10px;
-}
-
-.caixa-ferramenta p { 
-  margin-bottom: 25px; 
-  color: #666; 
-}
-
-.grupo-formulario {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 20px;
-  text-align: left;
-}
-
-.grupo-formulario label { 
-  font-weight: 600; 
-  color: #444; 
-}
-
-.grupo-formulario input, 
-.grupo-formulario select, 
-.grupo-formulario textarea {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 16px;
-  width: 100%;
-}
-
-.grupo-formulario-inline {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.grupo-formulario-inline input {
-  flex: 1;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.btn-acao {
-  width: 100%;
-  background-color: var(--verde-agro);
-  color: white;
-  border: none;
-  padding: 14px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.btn-acao:hover { 
-  background-color: var(--verde-escuro); 
-}
-
-/* Feedbacks Visuais do JavaScript */
-#resultado-simulacao, 
-#container-tempo, 
-#feedback-formulario {
-  margin-top: 20px;
-}
-
-.sucesso, .lucro-positivo {
-  background: #e8f5e9;
-  border-left: 5px solid #2e7d32;
-  padding: 15px;
-  border-radius: 4px;
-  text-align: left;
-}
-
-.lucro-negativo, .erro {
-  background: #ffebee;
-  border-left: 5px solid #c62828;
-  padding: 15px;
-  border-radius: 4px;
-  color: #c62828;
-  text-align: left;
-}
-
-.mensagem-feedback.sucesso { color: #2e7d32; font-weight: bold; }
-.mensagem-feedback.erro { color: #c62828; font-weight: bold; }
-
-/* ==========================================================================
-   8. CATÁLOGO COM FILTRO DE PRODUTOS
-   ========================================================================== */
-.botoes-filtro-container {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
-}
-
-.btn-filtro {
-  background: #e2e8f0;
-  border: none;
-  padding: 10px 20px;
-  font-weight: 600;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.btn-filtro.ativo, 
-.btn-filtro:hover {
-  background: var(--verde-agro);
-  color: white;
-}
-
-.grade-produtos {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  padding: 0 20px;
-}
-
-.item-produto {
-  background: var(--branco);
-  padding: 25px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.03);
-}
-
-.foto-produto { 
-  font-size: 50px; 
-  margin-bottom: 10px; 
-}
-
-/* ==========================================================================
-   9. CARDS DE SUSTENTABILIDADE
-   ========================================================================== */
-.secao-cards {
-  background-color: var(--branco);
-  padding: 60px 20px;
+* ==========================================================================
 }
 
 .container-cards {
@@ -503,6 +104,733 @@ flex-direction: column;
 }
 .conteudo-rodape {
 flex-direction: column;text-align: center;
+}
+}
+/* ==========================================================================
+   2. CABEÇALHO E MENU DE NAVEGAÇÃO (NAVBAR)
+   ========================================================================== */
+header {
+  background-color: var(--branco);
+  box-shadow: 0 2px 10px rgba(15, 32, 54, 0.08); 
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+
+.logo {
+  color: var(--verde-agro);
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--texto-escuro);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--verde-agro);
+}
+
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--verde-escuro);
+  display: none;
+}
+
+/* ==========================================================================
+   3. BANNER PRINCIPAL (HERO SECTION)
+   ========================================================================== */
+.hero {
+  background: linear-gradient(rgba(10, 25, 47, 0.65), rgba(10, 25, 47, 0.65)), 
+              url('https://unsplash.com') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--branco);
+  padding: 20px;
+  margin-top: 70px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  max-width: 800px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 18px;
+  max-width: 600px;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.btn-saiba-mais {
+  display: inline-block;
+  background-color: var(--verde-claro);
+  color: var(--branco);
+  padding: 12px 35px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-saiba-mais:hover {
+  background-color: var(--verde-escuro);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   4. SEÇÕES DE TEXTO E CONTEÚDO (PRODUÇÃO / DESAFIOS)
+   ========================================================================== */
+.secao-conteudo {
+  max-width: 1200px;
+  margin: 60px auto 30px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.secao-conteudo h2 {
+  font-size: 32px;
+  color: var(--verde-escuro);
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+}
+
+.secao-conteudo h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--verde-claro);
+  margin: 10px auto 0 auto;
+  border-radius: 2px;
+}
+
+.texto-descricao {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 18px;
+  color: #3b4a5a; 
+}
+
+/* ==========================================================================
+   5. PAINEL DE COTAÇÕES DE GRÃOS
+   ========================================================================== */
+.container-cotacoes-flex {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.card-cotacao {
+  background: var(--branco);
+  padding: 20px;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 4px 10px rgba(15, 32, 54, 0.05);
+  text-align: center;
+}
+
+.card-cotacao h3 {
+  font-size: 18px;
+  color: var(--texto-escuro);
+}
+
+.card-cotacao .preco {
+  font-size: 26px;
+  font-weight: bold;
+  color: var(--texto-escuro);
+  margin: 8px 0;
+}
+
+.variacao.alta { color: #2e7d32; font-weight: bold; }
+.variacao.baixa { color: #c62828; font-weight: bold; }
+
+/* ==========================================================================
+   6. CARROSSEL DE IMAGENS E NOTÍCIAS
+   ========================================================================== */
+.secao-carrossel {
+  max-width: 1200px;
+  margin: 5px auto 40px auto;
+  padding: 0 20px;
+}
+
+.carrossel-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(15, 32, 54, 0.12);
+}
+
+.carrossel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.carrossel-slide.visivel { 
+  opacity: 1; 
+  position: relative; 
+}
+
+.carrossel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carrossel-legenda {
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(transparent, rgba(10, 25, 47, 0.85)); 
+  color: white;
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+}
+
+.seta-carrossel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(10, 25, 47, 0.6); 
+  color: white;
+  border: none;
+  font-size: 24px;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.seta-carrossel:hover { background: rgba(10, 25, 47, 0.9); }
+#btn-anterior { left: 10px; }
+#btn-proximo { right: 10px; }
+
+/* ==========================================================================
+   7. PAINÉIS DE FERRAMENTAS (SIMULADOR, CLIMA E FORMULÁRIOS)
+   ========================================================================== */
+.secao-painel {
+  background-color: var(--azul-fundo); 
+  padding: 60px 20px;
+}
+
+.caixa-ferramenta {
+  max-width: 650px;
+  margin: 0 auto;
+  background: var(--branco);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(15, 32, 54, 0.06);
+}
+
+.caixa-ferramenta h2 {
+  color: var(--verde-escuro);
+  margin-bottom: 10px;
+}
+
+.caixa-ferramenta p { 
+  margin-bottom: 25px; 
+  color: #4a5d6e; 
+}
+
+.grupo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.grupo-formulario label { 
+  font-weight: 600; 
+  color: var(--texto-escuro);
+}
+
+.grupo-formulario input, 
+.grupo-formulario select, 
+.grupo-formulario textarea {
+  padding: 12px;
+  border: 1px solid #b9cbd9; 
+  border-radius: 6px;
+  font-size: 16px;
+  width: 100%;
+  background-color: #fcfdfe;
+}
+
+.grupo-formulario-inline {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.grupo-formulario-inline input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #b9cbd9;
+  border-radius: 6px;
+}
+* ==========================================================================
+}
+
+.container-cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card-item {
+  background-color: var(--cinza-fundo);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 4px solid var(--verde-claro);
+}
+
+.card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.icone-card {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.card-item h3 {
+  color: var(--verde-escuro);
+  margin-bottom: 10px;
+}
+
+.card-item p {
+  color: #666666;
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   10. RODAPÉ DA PÁGINA (FOOTER)
+   ========================================================================== */
+footer {
+  background-color: #1e291f;
+  color: #e2e8f0;
+  padding: 40px 20px 20px 20px;
+  margin-top: 60px;
+}
+.conteudo-rodape {max-width: 1200px;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;gap: 30px;padding-bottom: 30px;border-bottom: 1px solid #334135;
+}
+.bloco-rodape h3,.bloco-rodape h4 {color: var(--branco);margin-bottom: 15px;
+}
+.bloco-rodape p {font-size: 15px;color: #cbd5e;
+}.bloco-rodape ul {list-style: none;}.bloco-rodape ul li {margin-bottom: 8px;
+                                                         
+}.bloco-rodape ul li a {color: #cbd5e1;text-decoration: none;transition: color 0.3s;
+}.bloco-rodape ul li a:hover {color: var(--verde-claro);}.direitos-autorais {text-align: center;padding-top: 20px;font-size: 14px;color: #94a3b8;                                                                        
+}
+/* ==========================================================================11. RESPONSIVIDADE (ADAPTAÇÃO PARA SMARTPHONES)========================================================================== 
+*/@media (max-width: 768px) {
+.navbar {flex-direction: column;gap: 15px;padding: 15px 20px;
+}
+.nav-links {flex-wrap: wrap;justify-content: center;gap: 15px;
+}
+.hero h1 {font-size: 32px;
+}
+.hero p {font-size: 16px;       
+}
+.carrossel-container {
+height: 250px; /* Menor em telas pequenas */
+}
+.grupo-formulario-inline {
+flex-direction: column;
+}
+.conteudo-rodape {
+flex-direction: column;text-align: center;
+}
+}* ==========================================================================
+}
+
+.container-cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card-item {
+  background-color: var(--cinza-fundo);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 4px solid var(--verde-claro);
+}
+
+.card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.icone-card {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.card-item h3 {
+  color: var(--verde-escuro);
+  margin-bottom: 10px;
+}
+
+.card-item p {
+  color: #666666;
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   10. RODAPÉ DA PÁGINA (FOOTER)
+   ========================================================================== */
+footer {
+  background-color: #1e291f;
+  color: #e2e8f0;
+  padding: 40px 20px 20px 20px;
+  margin-top: 60px;
+}
+.conteudo-rodape {max-width: 1200px;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;gap: 30px;padding-bottom: 30px;border-bottom: 1px solid #334135;
+}
+.bloco-rodape h3,.bloco-rodape h4 {color: var(--branco);margin-bottom: 15px;
+}
+.bloco-rodape p {font-size: 15px;color: #cbd5e;
+}.bloco-rodape ul {list-style: none;}.bloco-rodape ul li {margin-bottom: 8px;
+                                                         
+}.bloco-rodape ul li a {color: #cbd5e1;text-decoration: none;transition: color 0.3s;
+}.bloco-rodape ul li a:hover {color: var(--verde-claro);}.direitos-autorais {text-align: center;padding-top: 20px;font-size: 14px;color: #94a3b8;                                                                        
+}
+/* ==========================================================================11. RESPONSIVIDADE (ADAPTAÇÃO PARA SMARTPHONES)========================================================================== 
+*/@media (max-width: 768px) {
+.navbar {flex-direction: column;gap: 15px;padding: 15px 20px;
+}
+.nav-links {flex-wrap: wrap;justify-content: center;gap: 15px;
+}
+.hero h1 {font-size: 32px;
+}
+.hero p {font-size: 16px;       
+}
+.carrossel-container {
+height: 250px; /* Menor em telas pequenas */
+}
+.grupo-formulario-inline {
+flex-direction: column;
+}
+.conteudo-rodape {
+flex-direction: column;text-align: center;
+}
+}* ==========================================================================
+}
+
+.container-cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card-item {
+  background-color: var(--cinza-fundo);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 4px solid var(--verde-claro);
+}
+
+.card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.icone-card {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.card-item h3 {
+  color: var(--verde-escuro);
+  margin-bottom: 10px;
+}
+
+.card-item p {
+  color: #666666;
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   10. RODAPÉ DA PÁGINA (FOOTER)
+   ========================================================================== */
+footer {
+  background-color: #1e291f;
+  color: #e2e8f0;
+  padding: 40px 20px 20px 20px;
+  margin-top: 60px;
+}
+.conteudo-rodape {max-width: 1200px;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;gap: 30px;padding-bottom: 30px;border-bottom: 1px solid #334135;
+}
+.bloco-rodape h3,.bloco-rodape h4 {color: var(--branco);margin-bottom: 15px;
+}
+.bloco-rodape p {font-size: 15px;color: #cbd5e;
+}.bloco-rodape ul {list-style: none;}.bloco-rodape ul li {margin-bottom: 8px;
+                                                         
+}.bloco-rodape ul li a {color: #cbd5e1;text-decoration: none;transition: color 0.3s;
+}.bloco-rodape ul li a:hover {color: var(--verde-claro);}.direitos-autorais {text-align: center;padding-top: 20px;font-size: 14px;color: #94a3b8;                                                                        
+}
+/* ==========================================================================11. RESPONSIVIDADE (ADAPTAÇÃO PARA SMARTPHONES)========================================================================== 
+*/@media (max-width: 768px) {
+.navbar {flex-direction: column;gap: 15px;padding: 15px 20px;
+}
+.nav-links {flex-wrap: wrap;justify-content: center;gap: 15px;
+}
+.hero h1 {font-size: 32px;
+}
+.hero p {font-size: 16px;       
+}
+.carrossel-container {
+height: 250px; /* Menor em telas pequenas */
+}
+.grupo-formulario-inline {
+flex-direction: column;
+}
+.conteudo-rodape {
+flex-direction: column;text-align: center;
+}
+}
+.btn-acao {
+  width: 100%;
+  background-color: var(--verde-agro);
+  color: white;
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-acao:hover { 
+  background-color: var(--verde-escuro); 
+}
+
+/* Feedbacks Visuais */
+#resultado-simulacao, #container-tempo, #feedback-formulario {
+  margin-top: 20px;
+}
+
+.sucesso, .lucro-positivo {
+  background: #e8f5e9;
+  border-left: 5px solid #2e7d32;
+  padding: 15px;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.lucro-negativo, .erro {
+  background: #fdf2f2;
+  border-left: 5px solid #c62828;
+  padding: 15px;
+  border-radius: 4px;
+  color: #c62828;
+  text-align: left;
+}
+
+.mensagem-feedback.sucesso { color: #2e7d32; font-weight: bold; }
+.mensagem-feedback.erro { color: #c62828; font-weight: bold; }
+
+/* ==========================================================================
+   8. CATÁLOGO COM FILTRO DE PRODUTOS
+   ========================================================================== */
+.botoes-filtro-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.btn-filtro {
+  background: var(--azul-suave); 
+  color: var(--texto-escuro);
+  border: none;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-filtro.ativo, 
+.btn-filtro:hover {
+  background: var(--verde-agro);
+  color: white;
+}
+
+.grade-produtos {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  padding: 0 20px;
+}
+
+.item-produto {
+  background: var(--branco);
+  padding: 25px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(15, 32, 54, 0.04);
+}
+
+.foto-produto { 
+  font-size: 50px; 
+  margin-bottom: 10px; 
+}
+
+/* ==========================================================================
+   9. CARDS DE SUSTENTABILIDADE
+   ========================================================================== */
+.secao-cards {
+  background-color: var(--branco);
+  padding: 60px 20px;
+}
+
+.container-cards {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.card-item {
+  background-color: var(--azul-fundo); 
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 4px solid var(--verde-claro);
+}
+
+.card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(15, 32, 54, 0.08);
+}
+
+.icone-card {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.card-item h3 {
+  color: var(--verde-escuro);
+  margin-bottom: 10px;
+}
+
+.card-item p {
+  color: #4a5d6e; 
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   10. RODAPÉ DA PÁGINA (FOOTER)
+========================================================================== 
+*/footer 
+{
+background-color: #0d1b2a;color: #e2e8f0;padding: 40px 20px 20px 20px;margin-top: 60px;
+}
+.conteudo-rodape {
+max-width: 1200px;margin: 0 auto;display: flex;flex-wrap: wrap;justify-content: space-between;gap: 30px;padding-bottom: 30px;border-bottom: 1px solid #1e2e3e;
+}
+.bloco-rodape h3,.bloco-rodape h4 {
+   color: var(--branco);margin-bottom: 15px;
+}
+.bloco-rodape p {
+   font-size: 15px;color: #cbd5e1;
+}
+.bloco-rodape ul {
+   list-style: none;
+}
+.bloco-rodape ul li {
+   margin-bottom: 8px;
+}
+.bloco-rodape ul li a {
+   color: #cbd5e1;text-decoration: none;transition: color 0.3s;
+}
+.bloco-rodape ul li a:hover {
+   color: var(--verde-claro);
+}
+.direitos-autorais {
+   text-align: center;padding-top: 20px;font-size: 14px;color: #64748b;
+}
+/* ==========================================================================11. RESPONSIVIDADE (ADAPTAÇÃO PARA SMARTPHONES)========================================================================== 
+*/@media (max-width: 768px) {
+   .navbar {
+flex-direction: column;gap: 15px;padding: 15px 20px;
+}
+   .nav-links {
+      flex-wrap: wrap;justify-content: center;gap: 15px;
+   }
+.hero h1 { font-size: 32px; 
+   }
+   .hero p { font-size: 16px; 
+           
+   }
+.carrossel-container {
+   height: 250px; 
+}
+   .grupo-formulario-inline { 
+      flex-direction: column; 
+   }
+   .conteudo-rodape { 
+      flex-direction: column; text-align: center; 
 }
 }
 
