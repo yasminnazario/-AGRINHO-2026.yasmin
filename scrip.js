@@ -1,4 +1,3 @@
-// Aguarda o HTML carregar antes de rodar o código
 document.addEventListener("DOMContentLoaded", () => {
   iniciarCotacoes();
   iniciarSimuladorCompleto();
@@ -6,12 +5,9 @@ document.addEventListener("DOMContentLoaded", () => {
   iniciarCarrossel();
   iniciarPrevisaoTempo();
   iniciarValidadorFormulario();
-  iniciarMenuMobile();
 });
 
-/* ==========================================================================
-   1. COTAÇÕES DE GRÃOS
-   ========================================================================== */
+// COTAÇÕES
 function iniciarCotacoes() {
   const containerCotacoes = document.querySelector("#cards-cotacoes");
   if (!containerCotacoes) return;
@@ -23,28 +19,22 @@ function iniciarCotacoes() {
   ];
 
   containerCotacoes.innerHTML = "";
-
   dadosMercado.forEach(item => {
     const card = document.createElement("div");
     card.className = "card-cotacao";
-    
     const classeVariacao = item.variacao >= 0 ? "alta" : "baixa";
     const iconeVariacao = item.variacao >= 0 ? "▲" : "▼";
 
     card.innerHTML = `
       <h3>${item.produto}</h3>
       <p class="preco">R$ ${item.preco.toFixed(2)}</p>
-      <span class="variacao ${classeVariacao}">
-        ${iconeVariacao} ${Math.abs(item.variacao)}%
-      </span>
+      <span class="variacao ${classeVariacao}">${iconeVariacao} ${Math.abs(item.variacao)}%</span>
     `;
     containerCotacoes.appendChild(card);
   });
 }
 
-/* ==========================================================================
-   2. SIMULADOR AGRO COMPLETO (Produção, Custo e Lucro)
-   ========================================================================== */
+// SIMULADOR
 function iniciarSimuladorCompleto() {
   const botaoCalcular = document.querySelector("#btn-calcular");
   if (!botaoCalcular) return;
@@ -59,7 +49,6 @@ function iniciarSimuladorCompleto() {
       return;
     }
 
-    // Configurações: [Rendimento saca/ha, Preço saca, Custo produção/ha]
     const configs = {
       soja: { rendimento: 60, precoSaca: 135.50, custoHa: 4500 },
       milho: { rendimento: 110, precoSaca: 58.20, custoHa: 3800 }
@@ -70,178 +59,95 @@ function iniciarSimuladorCompleto() {
     const faturamentoBruto = totalSacas * dados.precoSaca;
     const custoTotal = area * dados.custoHa;
     const lucroLiquido = faturamentoBruto - custoTotal;
-
     const classeLucro = lucroLiquido >= 0 ? "lucro-positivo" : "lucro-negativo";
 
     resultadoDiv.innerHTML = `
-      <div class="sucesso">
+      <div class="${classeLucro}">
         <p>🌾 <strong>Cultura:</strong> ${cultura.toUpperCase()}</p>
-        <p>📐 <strong>Área Total:</strong> ${area} Hectares</p>
         <p>📈 <strong>Produção Estimada:</strong> ${totalSacas.toLocaleString()} Sacas</p>
-        <p>💰 <strong>Custo de Produção:</strong> R$ ${custoTotal.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</p>
-        <p class="${classeLucro}">💵 <strong>Lucro Líquido Estimado:</strong> R$ ${lucroLiquido.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</p>
+        <p>💵 <strong>Lucro Líquido Estimado:</strong> R$ ${lucroLiquido.toLocaleString('pt-BR', {minimumFractionDigits: 2})}</p>
       </div>
     `;
   });
 }
 
-/* ==========================================================================
-   3. FILTRO DE PRODUTOS E MÁQUINAS
-   ========================================================================== */
+// FILTRO
 function iniciarFiltroProdutos() {
   const botoesFiltro = document.querySelectorAll(".btn-filtro");
   const produtos = document.querySelectorAll(".item-produto");
 
-  if (!botoesFiltro || !produtos) return;
-
   botoesFiltro.forEach(botao => {
     botao.addEventListener("click", () => {
-      // Remove classe ativa de todos e adiciona no clicado
       botoesFiltro.forEach(b => b.classList.remove("ativo"));
       botao.classList.add("ativo");
-
       const categoriaDefinida = botao.getAttribute("data-categoria");
 
       produtos.forEach(produto => {
         const categoriaProduto = produto.getAttribute("data-categoria");
-        
-        if (categoriaDefinida === "todos" || categoriaDefinida === categoriaProduto) {
-          produto.style.display = "block"; // Mostra o item
-        } else {
-          produto.style.display = "none";  // Esconde o item
-        }
+        produto.style.display = (categoriaDefinida === "todos" || categoriaDefinida === categoriaProduto) ? "block" : "none";
       });
     });
   });
 }
 
-/* ==========================================================================
-   4. CARROSSEL DE IMAGENS (Destaques/Notícias do Agro)
-   ========================================================================== */
+// CARROSSEL
 function iniciarCarrossel() {
   const slides = document.querySelectorAll(".carrossel-slide");
   const btnAnt = document.querySelector("#btn-anterior");
   const btnProx = document.querySelector("#btn-proximo");
-  
-  if (!slides.length || !btnAnt || !btnProx) return;
+  if (!slides.length) return;
 
   let slideAtual = 0;
-
   function mostrarSlide(indice) {
-    slides.forEach(slide => slide.classList.remove("visivel"));
-    
-    // Trata os limites do carrossel
     if (indice >= slides.length) slideAtual = 0;
     if (indice < 0) slideAtual = slides.length - 1;
-
+    slides.forEach(s => s.classList.remove("visivel"));
     slides[slideAtual].classList.add("visivel");
   }
 
-  btnProx.addEventListener("click", () => {
-    slideAtual++;
-    mostrarSlide(slideAtual);
-  });
-
-  btnAnt.addEventListener("click", () => {
-    slideAtual--;
-    mostrarSlide(slideAtual);
-  });
-
-  // Passa o slide automaticamente a cada 5 segundos
-  setInterval(() => {
-    slideAtual++;
-    mostrarSlide(slideAtual);
-  }, 5000);
+  btnProx.addEventListener("click", () => { slideAtual++; mostrarSlide(slideAtual); });
+  btnAnt.addEventListener("click", () => { slideAtual--; mostrarSlide(slideAtual); });
+  setInterval(() => { slideAtual++; mostrarSlide(slideAtual); }, 5000);
 }
 
-/* ==========================================================================
-   5. PREVISÃO DO TEMPO AGRO
-   ========================================================================== */
+// CLIMA
 function iniciarPrevisaoTempo() {
   const btnTempo = document.querySelector("#btn-buscar-tempo");
   const resultadoTempo = document.querySelector("#container-tempo");
 
-  if (!btnTempo || !resultadoTempo) return;
-
+  if (!btnTempo) return;
   btnTempo.addEventListener("click", () => {
     const cidade = document.querySelector("#input-cidade").value.trim();
-
-    if (cidade === "") {
+    if (!cidade) {
       resultadoTempo.innerHTML = "<p class='erro'>Digite o nome de uma cidade!</p>";
       return;
     }
-
-    // Simulação de dados de clima ideais para o produtor rural
     resultadoTempo.innerHTML = `
-      <div class="bloco-tempo">
+      <div class="sucesso">
         <h4>Clima em ${cidade}</h4>
-        <p class="temp">🌡️ 26°C</p>
-        <p>☀️ Céu Limpo / Ensolarado</p>
-        <p>💧 Umidade do Ar: 65%</p>
-        <p>💨 Vento: 12 km/h (Ideal para pulverização)</p>
-        <p>🌧️ Chance de Chuva: 10%</p>
+        <p class="temp">🌡️ 26°C - Céu Ensolarado</p>
+        <p>💨 Vento: 12 km/h (Perfeito para pulverizar)</p>
       </div>
     `;
   });
 }
 
-/* ==========================================================================
-   6. VALIDAÇÃO AVANÇADA DE FORMULÁRIO
-   ========================================================================== */
+// CONTATO
 function iniciarValidadorFormulario() {
   const formulario = document.querySelector("#form-agro-contato");
+  const feedback = document.querySelector("#feedback-formulario");
   if (!formulario) return;
 
-  formulario.addEventListener("submit", (evento) => {
-    evento.preventDefault();
-
+  formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
     const nome = document.querySelector("#nome").value.trim();
-    const email = document.querySelector("#email").value.trim();
-    const mensagem = document.querySelector("#mensagem").value.trim();
-    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
     if (nome.length < 3) {
-      mostrarFeedback("Por favor, digite seu nome completo.", "erro");
+      feedback.className = "erro";
+      feedback.innerText = "Insira seu nome completo.";
       return;
     }
-
-    if (!emailValido) {
-      mostrarFeedback("Insira um endereço de e-mail válido.", "erro");
-      return;
-    }
-
-    if (mensagem.length < 10) {
-      mostrarFeedback("Sua mensagem deve ter pelo menos 10 caracteres.", "erro");
-      return;
-    }
-
-    mostrarFeedback("Sua mensagem foi enviada! Nossa equipe entrará em contato.", "sucesso");
+    feedback.className = "sucesso";
+    feedback.innerText = "Mensagem enviada com sucesso!";
     formulario.reset();
-  });
-}
-
-function mostrarFeedback(texto, tipo) {
-  const feedbackContainer = document.querySelector("#feedback-formulario");
-  if (!feedbackContainer) {
-    alert(texto);
-    return;
-  }
-  feedbackContainer.innerText = texto;
-  feedbackContainer.className = `mensagem-feedback ${tipo}`;
-}
-
-/* ==========================================================================
-   7. MENU MOBILE ACESSÍVEL
-   ========================================================================== */
-function iniciarMenuMobile() {
-  const toggleMenu = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
-
-  if (!toggleMenu || !navLinks) return;
-
-  toggleMenu.addEventListener("click", () => {
-    const expandido = toggleMenu.getAttribute("aria-expanded") === "true";
-    toggleMenu.setAttribute("aria-expanded", !expandido);
-    navLinks.classList.toggle("menu-aberto");
   });
 }
