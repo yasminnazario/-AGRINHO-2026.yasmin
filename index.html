@@ -1,116 +1,255 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
-    <link rel="stylesheet" href="style.css"> </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroSustentável - Inteligência e Tecnologia Digital</title>
+  <!-- Link que conecta este HTML com o seu arquivo style.css -->
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-    <header>
-        <div class="logo">
-            <h1>AgroSustentável</h1>
+  <!-- ==========================================
+       1. TOPO DA PÁGINA (MENU DE NAVEGAÇÃO)
+       ========================================== -->
+  <header>
+    <nav class="navbar">
+      <a href="#" class="logo">AgroSustentável</a>
+      
+      <!-- Botão para Menu Mobile (Hambúrguer) -->
+      <button class="menu-toggle" aria-expanded="false">☰</button>
+      
+      <ul class="nav-links">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#precos">Mercado</a></li>
+        <li><a href="#simulador">Simulador</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#sustentabilidade">Sustentabilidade</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ==========================================
+       2. BANNER PRINCIPAL (HERO SECTION)
+       ========================================== -->
+  <main id="inicio">
+    <section class="hero">
+      <h1>Produzir hoje, preservar para o amanhã.</h1>
+      <p>O agronegócio e a sustentabilidade podem caminhar juntos por meio da inovação e do uso consciente dos recursos naturais.</p>
+      <a href="#simulador" class="btn-saiba-mais">Iniciar Simulação</a>
+    </section>
+
+    <!-- ==========================================
+         3. COTAÇÕES DE GRÃOS EM TEMPO REAL
+         ========================================== -->
+    <section id="precos" class="secao-conteudo">
+      <h2>Cotações do Mercado</h2>
+      <p class="texto-descricao">Acompanhe os valores atualizados das principais commodities do agronegócio nacional.</p>
+      
+      <!-- O Javascript vai construir os cards dentro desta div -->
+      <div id="cards-cotacoes" class="container-cotacoes-flex">
+        <p>Carregando cotações do dia...</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         4. CARROSSEL DE IMAGENS E NOTÍCIAS
+         ========================================== -->
+    <section class="secao-carrossel">
+      <div class="carrossel-container">
+        
+        <div class="carrossel-slide visivel">
+          <img src="https://unsplash.com" alt="Tecnologia no campo">
+          <div class="carrossel-legenda">
+            <h3>Drones na Pulverização</h3>
+            <p>Economia de até 40% em insumos com aplicação aérea de precisão.</p>
+          </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#producao">Produção</a></li>
-                <li><a href="#sustentabilidade">Sustentabilidade</a></li>
-                <li><a href="#desafios">Desafios</a></li>
-                <li><a href="#futuro">Futuro</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main>
-        <section id="home" class="banner">
-            <div class="banner-content">
-                <h2>Produzir hoje, preservar para o amanhã.</h2>
-                <p>O agronegócio e a sustentabilidade podem caminhar juntos por meio da inovação e do uso consciente dos recursos naturais.</p>
-                <a href="#producao" class="btn">Saiba Mais</a>
-            </div>
-        </section>
+        <div class="carrossel-slide">
+          <img src="https://unsplash.com" alt="Plantação jovem">
+          <div class="carrossel-legenda">
+            <h3>Sustentabilidade no Solo</h3>
+            <p>Conheça as novas técnicas de plantio direto que fixam carbono na terra.</p>
+          </div>
+        </div>
 
-        <section id="producao" class="container">
-            <h2>Produção Agrícola</h2>
-            <div class="flex-row">
-                <div class="text">
-                    <p>O agronegócio é o motor da economia brasileira, gerando empregos e garantindo a segurança alimentar global.</p>
-                </div>
-                <div class="media">
-                    <div class="placeholder-grafico">[Gráfico de Produção]</div>
-                </div>
-            </div>
-        </section>
+        <!-- Botões de controle do carrossel -->
+        <button id="btn-anterior" class="seta-carrossel">❮</button>
+        <button id="btn-proximo" class="seta-carrossel">❯</button>
+      </div>
+    </section>
 
-        <section id="sustentabilidade" class="bg-light">
-            <div class="container">
-                <h2>Sustentabilidade no Campo</h2>
-                <div class="cards">
-                    <div class="card">
-                        <span class="icon">☀️</span>
-                        <h3>Energia Limpa</h3>
-                        <p>Uso de painéis solares e biomassa.</p>
-                    </div>
-                    <div class="card">
-                        <span class="icon">💧</span>
-                        <h3>Gestão de Água</h3>
-                        <p>Irrigação inteligente e monitoramento.</p>
-                    </div>
-                    <div class="card">
-                        <span class="icon">🌱</span>
-                        <h3>Solo Vivo</h3>
-                        <p>Práticas de agricultura regenerativa.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- ==========================================
+         5. SIMULADOR AGRO COMPLETO (PRODUÇÃO E LUCRO)
+         ========================================== -->
+    <section id="simulador" class="secao-painel">
+      <div class="caixa-ferramenta">
+        <h2>Simulador de Produtividade</h2>
+        <p>Calcule a estimativa de sacas colhidas, custos médios e o lucro líquido da sua safra.</p>
+        
+        <div class="grupo-formulario">
+          <label for="input-area">Área Total da Plantação (Hectares):</label>
+          <input type="number" id="input-area" placeholder="Ex: 50" min="1">
+        </div>
 
-        <section id="desafios" class="container">
-            <h2>Desafios Ambientais</h2>
-            <div class="flex-row">
-                <div class="media">
-                    <img src="alerta-ambiental.jpg" alt="Impactos ambientais">
-                </div>
-                <div class="text">
-                    <ul>
-                        <li>Combate ao desmatamento ilegal.</li>
-                        <li>Redução da emissão de carbono.</li>
-                        <li>Preservação dos recursos hídricos.</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
+        <div class="grupo-formulario">
+          <label for="select-cultura">Selecione a Cultura:</label>
+          <select id="select-cultura">
+            <option value="soja">Soja</option>
+            <option value="milho">Milho</option>
+          </select>
+        </div>
 
-        <section id="futuro" class="bg-dark">
-            <div class="container">
-                <h2>Inovação e Futuro</h2>
-                <div class="tech-grid">
-                    <div class="tech-item">Drones Agrícolas</div>
-                    <div class="tech-item">Sensores de Solo</div>
-                    <div class="tech-item">IA no Campo</div>
-                </div>
-            </div>
-        </section>
+        <button id="btn-calcular" class="btn-acao">Calcular Resultado</button>
+        
+        <!-- O Javascript vai exibir as contas e lucros aqui dentro -->
+        <div id="resultado-simulacao"></div>
+      </div>
+    </section>
 
-        <section id="contato" class="container">
-            <h2>Participe da Mudança</h2>
-            <form action="#">
-                <input type="text" placeholder="Seu Nome" required>
-                <input type="email" placeholder="Seu E-mail" required>
-                <textarea placeholder="Sua Mensagem"></textarea>
-                <button type="submit">Enviar</button>
-            </form>
-            <p class="quote">“Pequenas mudanças no presente constroem um futuro sustentável.”</p>
-        </section>
-    </main>
+    <!-- ==========================================
+         6. FILTRO DE PRODUTOS E MÁQUINAS
+         ========================================== -->
+    <section id="produtos" class="secao-conteudo">
+      <h2>Nossos Produtos e Equipamentos</h2>
+      <p class="texto-descricao">Filtre nosso catálogo por categorias específicas para encontrar o que sua fazenda precisa.</p>
+      
+      <!-- Botões de Filtro -->
+      <div class="botoes-filtro-container">
+        <button class="btn-filtro ativo" data-categoria="todos">Todos</button>
+        <button class="btn-filtro" data-categoria="maquinas">Máquinas</button>
+        <button class="btn-filtro" data-categoria="insumos">Insumos</button>
+      </div>
 
-    <footer>
-        <p>&copy; 2024 Agro Sustentável - Todos os direitos reservados.</p>
-        <div class="social-links">
-            </div>
-    </footer>
+      <!-- Grade de Itens -->
+      <div class="grade-produtos">
+        
+        <div class="item-produto" data-categoria="maquinas">
+          <div class="foto-produto">🚜</div>
+          <h3>Trator Agrícola 4x4</h3>
+          <p>Potência e economia para preparar o solo.</p>
+        </div>
 
-</body>
-</html>
+        <div class="item-produto" data-categoria="insumos">
+          <div class="foto-produto">🌱</div>
+          <h3>Sementes de Soja Premium</h3>
+          <p>Alta taxa de germinação e resistência a pragas.</p>
+        </div>
+
+        <div class="item-produto" data-categoria="maquinas">
+          <div class="foto-produto">🛰️</div>
+          <h3>Drone de Mapeamento</h3>
+          <p>Monitoramento aéreo com câmeras térmicas.</p>
+        </div>
+
+        <div class="item-produto" data-categoria="insumos">
+          <div class="foto-produto">🧪</div>
+          <h3>Fertilizante Orgânico</h3>
+          <p>Nutrição completa sem agredir o lençol freático.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         7. MONITOR DE PREVISÃO DO TEMPO
+         ========================================== -->
+    <section class="secao-painel Clima">
+      <div class="caixa-ferramenta">
+        <h2>Clima e Janela de Pulverização</h2>
+        <p>Insira sua cidade para avaliar as condições de vento e umidade antes de aplicar defensivos.</p>
+        
+        <div class="grupo-formulario-inline">
+          <input type="text" id="input-cidade" placeholder="Digite o nome da cidade (Ex: Sorriso)">
+          <button id="btn-buscar-tempo" class="btn-acao">Buscar</button>
+        </div>
+
+        <!-- Exibe os dados do tempo simulados via Javascript -->
+        <div id="container-tempo"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         8. CARDS DE SUSTENTABILIDADE
+         ========================================== -->
+    <section id="sustentabilidade" class="secao-cards">
+      <div class="container-cards">
+        
+        <div class="card-item">
+          <div class="icone-card">💧</div>
+          <h3>Uso de Água</h3>
+          <p>Sistemas modernos de irrigação gota a gota que evitam o desperdício de água nos períodos de seca.</p>
+        </div>
+
+        <div class="card-item">
+          <div class="icone-card">☀️</div>
+          <h3>Energia Limpa</h3>
+          <p>Fazendas movidas a energia solar fotovoltaica para reduzir a pegada de carbono na produção.</p>
+        </div>
+
+        <div class="card-item">
+          <div class="icone-card">🌿</div>
+          <h3>Solo Saudável</h3>
+          <p>Rotação de culturas e plantio direto para manter a terra fértil sem desgastar os nutrientes.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================
+         9. FORMULÁRIO AVANÇADO DE CONTATO
+         ========================================== -->
+    <section id="contato" class="secao-painel">
+      <div class="caixa-ferramenta">
+        <h2>Fale com Especialistas</h2>
+        <p>Envie suas dúvidas sobre agricultura digital ou solicite uma consultoria ambiental.</p>
+        
+        <form id="form-agro-contato">
+          <div class="grupo-formulario">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" placeholder="Digite seu nome completo">
+          </div>
+
+          <div class="grupo-formulario">
+            <label for="email">E-mail Corporativo:</label>
+            <input type="email" id="email" placeholder="seu-email@dominio.com">
+          </div>
+
+          <div class="grupo-formulario">
+            <label for="mensagem">Como podemos ajudar seu plantio?</label>
+            <textarea id="mensagem" rows="4" placeholder="Descreva os detalhes da sua propriedade ou solicitação..."></textarea>
+          </div>
+
+          <button type="submit" class="btn-acao">Enviar Mensagem</button>
+          
+          <!-- Elemento para mensagens de erro/sucesso do formulário -->
+          <div id="feedback-formulario"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       10. RODAPÉ DA PÁGINA (FOOTER)
+       ========================================== -->
+  <footer>
+    <div class="conteudo-rodape">
+      
+      <div class="bloco-rodape">
+        <h3>AgroSustentável</h3>
+        <p>Transformando dados em colheitas fartas com inteligência verde.</p>
+      </div>
+      
+      <div class="bloco-rodape">
+        <h4>Ferramentas</h4>
+        <ul>
+          <li><a href="#simulador">Calculadora Econômica</a></li>
+          <li><a href="#produtos">Catálogo Inteligente</a></li>
+          <li><a href="#precos">Painel do Clima</a></li>
+        </ul>
+      </div>
+      
+      <div class="bloco-rodape">
+        <h4>Atendimento</h4>
