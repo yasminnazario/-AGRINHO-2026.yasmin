@@ -1,5 +1,4 @@
-
-     <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
@@ -308,41 +307,51 @@
     margin: 1rem 0;
   }
 
+  /* ===== GALERIA ===== */
+  .galeria-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
-<!-- ===== GALERIA ===== -->
-<section id="galeria">
-  <h2 class="section-title fade-in">Galeria do Campo 📸</h2>
-  <div class="galeria-grid">
-    <div class="galeria-item fade-in">
-      <img src="https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=600" alt="Trator">
-      <div class="galeria-overlay"><h4>Mecanização Moderna</h4></div>
-    </div>
-    <div class="galeria-item fade-in">
-      <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600" alt="Plantação">
-      <div class="galeria-overlay"><h4>Plantações Sustentáveis</h4></div>
-    </div>
-    <div class="galeria-item fade-in">
-      <img src="https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?w=600" alt="Frutas">
-      <div class="galeria-overlay"><h4>Fruticultura</h4></div>
-    </div>
-    <div class="galeria-item fade-in">
-      <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?w=600" alt="Frutas Frescas">
-      <div class="galeria-overlay"><h4>Frutas Frescas</h4></div>
-    </div>
-    <div class="galeria-item fade-in">
-      <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600" alt="Gado">
-      <div class="galeria-overlay"><h4>Pecuária de Precisão</h4></div>
-    </div>
-    <div class="galeria-item fade-in">
-      <img src="https://images.unsplash.com/photo-1530836369250-ef72a3f5cda8?w=600&q=80" alt="Colheita">
-      <div class="galeria-overlay"><h4>Colheita Abundante</h4></div>
-    </div>
-    <div class="galeria-item fade-in">
-      <img src="https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600" alt="Campo">
-      <div class="galeria-overlay"><h4>Beleza do Campo</h4></div>
-    </div>
-  </div>
-</section>
+  .galeria-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    height: 280px;
+    cursor: pointer;
+    box-shadow: var(--sombra);
+  }
+
+  .galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+  }
+
+  .galeria-item:hover img { transform: scale(1.1); }
+
+  .galeria-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(transparent, rgba(27,67,50,0.9));
+    display: flex;
+    align-items: flex-end;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: 0.4s;
+  }
+
+  .galeria-item:hover .galeria-overlay { opacity: 1; }
+
+  .galeria-overlay h4 {
+    color: white;
+    font-size: 1.3rem;
+  }
+
   /* ===== FORMULÁRIO ===== */
   .contato {
     background: var(--verde-suave);
